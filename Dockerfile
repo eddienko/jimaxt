@@ -1,4 +1,4 @@
-# VERSION       0.1
+# VERSION       0.3
 
 FROM continuumio/miniconda3
 
@@ -10,8 +10,7 @@ RUN wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/
 RUN chmod +x /usr/local/bin/dumb-init
 
 COPY environment.yml /root/environment.yml
-RUN conda env create -n imaxt -f /root/environment.yml && \
-    conda install -y gcc_linux-64 && \
+RUN conda env update -n base -f /root/environment.yml && \
     conda clean -y -a
 
 COPY prepare.sh /usr/bin/prepare.sh

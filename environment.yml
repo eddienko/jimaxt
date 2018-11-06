@@ -1,4 +1,4 @@
-name: imaxt
+name: base
 channels:
   - defaults
 dependencies:
