@@ -18,5 +18,8 @@ RUN chmod +x /usr/bin/prepare.sh
 
 RUN mkdir /opt/app
 
+RUN groupadd -g 1111 imaxt
+RUN useradd -m -u 1111 -g imaxt imaxt
+USER imaxt
 ENTRYPOINT ["/usr/local/bin/dumb-init", "/usr/bin/prepare.sh"]
 
