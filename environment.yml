@@ -21,6 +21,8 @@ dependencies:
   - imagesize
   - ipython
   - isort
+  - jupyterhub
+  - jupyterlab
   - lz4
   - matplotlib
   - mypy
