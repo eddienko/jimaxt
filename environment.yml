@@ -21,8 +21,6 @@ dependencies:
   - imagesize
   - ipython
   - isort
-  - jupyterhub
-  - jupyterlab
   - lz4
   - matplotlib
   - mypy
@@ -40,7 +38,8 @@ dependencies:
   - pylint
   - pytest
   - pytest-cov
-  - python
+  - python==3.7.1
+  - python-graphviz
   - pyyaml
   - pyzmq
   - requests
@@ -48,7 +47,6 @@ dependencies:
   - scikit-learn
   - scipy
   - sep
-  - sphinx
   - sqlalchemy
   - sqlite
   - tornado
@@ -63,3 +61,7 @@ dependencies:
     - msgpack
     - sphinx-autodoc-typehints
     - voluptuous
+    - jupyterhub
+    - jupyterlab
+    - photutils
+    - sphinx
