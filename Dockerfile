@@ -22,6 +22,9 @@ COPY prepare.sh /usr/bin/prepare.sh
 RUN chmod +x /usr/bin/prepare.sh
 
 RUN mkdir /opt/app
+ADD ipython /etc/ipython
+ADD jupyterlab_imaxt /opt/app/jupyterlab_imaxt
+RUN cd /opt/app/jupyterlab_imaxt && jupyter labextension install 
 
 RUN groupadd -g 1111 imaxt
 RUN groupadd -g 3785 docker
