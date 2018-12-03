@@ -12,6 +12,11 @@ RUN chmod +x /usr/local/bin/dumb-init
 COPY environment.yml /root/environment.yml
 RUN conda env update -n base -f /root/environment.yml && \
     conda clean -y -a
+RUN /opt/conda/bin/jupyter serverextension enable --py nbserverproxy
+RUN /opt/conda/bin/jupyter labextension install @jupyterlab/hub-extension
+RUN /opt/conda/bin/jupyter labextension install jupyterlab_bokeh
+RUN /opt/conda/bin/jupyter labextension install @pyviz/jupyterlab_pyviz
+RUN mkdir -p /opt/conda/share/jupyter/lab/settings && echo '{ "hub_prefix": "/jupyter" }' > /opt/conda/share/jupyter/lab/settings/page_config.json
 
 COPY prepare.sh /usr/bin/prepare.sh
 RUN chmod +x /usr/bin/prepare.sh
