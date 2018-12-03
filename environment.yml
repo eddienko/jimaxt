@@ -24,7 +24,9 @@ dependencies:
   - lz4
   - matplotlib
   - mypy
+  - nbserverproxy
   - networkx
+  - nodejs
   - numpy
   - pandas
   - pillow
@@ -53,6 +55,8 @@ dependencies:
   - transaction
   - xarray
   - xlrd
+  - xorg-libxpm
+  - xorg-libxrender
   - pip:
     - better-exceptions
     - bumpversion
