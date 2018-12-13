@@ -12,10 +12,17 @@ RUN chmod +x /usr/local/bin/dumb-init
 COPY environment.yml /root/environment.yml
 RUN conda env update -n base -f /root/environment.yml && \
     conda clean -y -a
-RUN /opt/conda/bin/jupyter serverextension enable --py nbserverproxy
-RUN /opt/conda/bin/jupyter labextension install @jupyterlab/hub-extension
-RUN /opt/conda/bin/jupyter labextension install jupyterlab_bokeh
-RUN /opt/conda/bin/jupyter labextension install @pyviz/jupyterlab_pyviz
+RUN /opt/conda/bin/jupyter serverextension enable --py nbserverproxy && \
+    /opt/conda/bin/jupyter labextension install @jupyterlab/hub-extension && \
+    /opt/conda/bin/jupyter labextension install jupyterlab_bokeh @pyviz/jupyterlab_pyviz jupyter-matplotlib && \
+    /opt/conda/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
+    /opt/conda/bin/jupyter labextension install dask-labextension && \
+    /opt/conda/bin/jupyter labextension install jupyter-leaflet @jupyter-widgets/jupyterlab-sidecar @jupyterlab/fasta-extension && \
+    npm cache clean --force && \
+    rm -rf /opt/conda/share/jupyter/lab/staging && \
+    rm -rf /root/.cache/yarn && \
+    rm -rf /root/.node-gyp
+
 RUN mkdir -p /opt/conda/share/jupyter/lab/settings && echo '{ "hub_prefix": "/jupyter" }' > /opt/conda/share/jupyter/lab/settings/page_config.json
 
 COPY prepare.sh /usr/bin/prepare.sh
