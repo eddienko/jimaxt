@@ -33,10 +33,18 @@ ADD ipython /etc/ipython
 ADD jupyterlab_imaxt /opt/app/jupyterlab_imaxt
 RUN cd /opt/app/jupyterlab_imaxt && jupyter labextension install 
 
-RUN groupadd -g 1111 imaxt
-RUN groupadd -g 3785 docker
-RUN useradd -m -u 1111 -g imaxt imaxt
-RUN usermod -a -G docker imaxt
-USER imaxt
+RUN groupadd -g 1110 jimaxt && \
+    groupadd -g 1111 imaxt && \
+    groupadd -g 3785 docker
+RUN useradd -m -u 1110 -g jimaxt jimaxt && \
+    useradd -m -u 1111 -g imaxt imaxt && \
+    usermod -a -G docker jimaxt
+USER jimaxt
+
+ENV XDG_CACHE_HOME /home/jimaxt/.cache/
+RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot"
+
+WORKDIR /home/jimaxt
+
 ENTRYPOINT ["/usr/local/bin/dumb-init", "/usr/bin/prepare.sh"]
 
