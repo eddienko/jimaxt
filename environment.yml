@@ -22,6 +22,8 @@ dependencies:
   - cffi=1.11.5
   - click=7.0
   - cloudpickle=0.6.1
+  - line_profiler==2.1.2
+  - memory_profiler==0.55.0
   - colorcet=1.0.0
   - coverage=4.5.2
   - cython=0.29
@@ -87,9 +89,11 @@ dependencies:
   - sip=4.19.8
   - six=1.11.0
   - snappy=1.1.7
+  - snakeviz==1.0.0
   - sortedcontainers=2.1.0
   - sqlalchemy=1.2.14
   - sqlite=3.25.3
+  - theano==1.0.3
   - tornado=5.1.1
   - transaction=2.4.0
   - urllib3=1.23
@@ -119,12 +123,14 @@ dependencies:
     - jupyterhub==0.9.4
     - jupyterlab==0.35.4
     - jupyterlab-server==0.2.0
+    - ipython-sql==0.3.9     
     - photutils==0.5
     - pims==0.4.1
     - python-editor==1.0.3
     - python-oauth2==1.1.0
     - sidecar==0.2.0
     - slicerator==0.9.8
+    - statsmodels==0.9.0
     - sphinx==1.8.2
     - sphinx-autodoc-typehints==1.5.2
     - sphinxcontrib-websupport==1.1.0
