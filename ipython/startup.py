@@ -4,6 +4,7 @@ import platform
 import subprocess
 
 import pip
+from pip._internal.utils.misc import get_installed_distributions
 from IPython.core.magic import Magics, cell_magic, line_magic, magics_class
 from IPython.core.magic_arguments import (argument, magic_arguments,
                                           parse_argstring)
@@ -18,21 +19,6 @@ except:
 @magics_class
 class CustomMagics(Magics):
 
-    @line_magic
-    def theme(self, line):
-        if not line:
-            res = subprocess.run("jupyter_themer -l",
-                                 shell=True, stdout=subprocess.PIPE,
-                                 stderr=subprocess.PIPE)
-            if res.returncode == 0:
-                print(res.stdout.decode())
-        else:
-            res = subprocess.run("jupyter_themer -t {}".format(line),
-                                 shell=True, stdout=subprocess.PIPE,
-                                 stderr=subprocess.PIPE)
-        if res.returncode != 0:
-            print(res.stderr.decode())
-
     @magic_arguments()
     @argument('-s', '--silent', action='store_true',
               help='perform installation silently')
@@ -41,7 +27,7 @@ class CustomMagics(Magics):
     def install(self, line):
         """Install a package locally."""
         args = parse_argstring(self.install, line)
-        a = subprocess.run("pip install --user {}".format(args.pkg),
+        a = subprocess.run("pip install -U --user {}".format(args.pkg),
                            shell=True, stdout=subprocess.PIPE,
                            stderr=subprocess.PIPE)
         if a.returncode == 0:
@@ -86,7 +72,7 @@ class CustomMagics(Magics):
 
     @line_magic
     def list_packages(self, line):
-        installed_packages = pip.get_installed_distributions()
+        installed_packages = get_installed_distributions()
         installed_packages_list = sorted(["\033[95m%s\033[0m==%s" % (i.key, i.version)
                                           for i in installed_packages if len(i.key) < 20])
         res = [installed_packages_list[3 * i:3 * (i + 1)]
@@ -107,8 +93,8 @@ class CustomMagics(Magics):
         s['scipy'] = ["import scipy"]
         s['tensorflow'] = ["import tensorflow as tf"]
         s['pyarrow'] = ["import pyarrow as pa", "import pyarrow.parquet as pq"]
-        s['dask'] = ['from dask import delayed', 
-                     'import dask.array as da', 
+        s['dask'] = ['from dask import delayed',
+                     'import dask.array as da',
                      'import dask.dataframe as dd']
         if not line:
             cmd = '\n'.join(itertools.chain(*s.values()))
