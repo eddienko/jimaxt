@@ -1,11 +1,11 @@
-# VERSION       0.3
-
 FROM continuumio/miniconda3
 
-MAINTAINER Eduardo Gonzalez
+LABEL maintainer="Eduardo Gonzalez-Solares <eglez@ast.cam.ac.uk>"
+
+USER root
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends gcc libc6-dev procps && \
+    apt-get install -y --no-install-recommends gcc libc6-dev procps libxrender1 && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_amd64
@@ -13,8 +13,8 @@ RUN chmod +x /usr/local/bin/dumb-init
 
 COPY environment.yml /root/environment.yml
 RUN conda env update -n base -f /root/environment.yml && \
-    conda clean -y -a
-RUN /opt/conda/bin/jupyter serverextension enable --py nbserverproxy && \
+    conda clean -tipsy && \
+    /opt/conda/bin/jupyter serverextension enable --py nbserverproxy && \
     /opt/conda/bin/jupyter labextension install @jupyterlab/hub-extension && \
     /opt/conda/bin/jupyter labextension install jupyterlab_bokeh @pyviz/jupyterlab_pyviz jupyter-matplotlib && \
     /opt/conda/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
@@ -41,6 +41,7 @@ RUN groupadd -g 1110 jimaxt && \
 RUN useradd -m -u 1110 -g jimaxt jimaxt && \
     useradd -m -u 1111 -g imaxt imaxt && \
     usermod -a -G docker jimaxt
+
 USER jimaxt
 
 ENV XDG_CACHE_HOME /home/jimaxt/.cache/
