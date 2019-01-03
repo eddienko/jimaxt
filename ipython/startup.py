@@ -27,7 +27,7 @@ class CustomMagics(Magics):
     def install(self, line):
         """Install a package locally."""
         args = parse_argstring(self.install, line)
-        a = subprocess.run("pip install -U --user {}".format(args.pkg),
+        a = subprocess.run("pip install -qU --user {}".format(args.pkg),
                            shell=True, stdout=subprocess.PIPE,
                            stderr=subprocess.PIPE)
         if a.returncode == 0:
