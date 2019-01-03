@@ -2,143 +2,319 @@ name: base
 channels:
   - intake
   - pyviz
-  - pyviz/label/dev
-  - conda-forge
   - defaults
 dependencies:
   - aiohttp=3.4.4
+  - alabaster=0.7.12
   - alembic=1.0.5
+  - anyqt=0.0.10
+  - appdirs=1.4.3
+  - arrow-cpp=0.11.1
+  - asn1crypto=0.24.0
+  - astroid=2.1.0
   - astropy=3.1
   - async-timeout=3.0.1
+  - async_generator=1.10
+  - atomicwrites=1.2.1
+  - attrs=18.2.0
   - autopep8=1.4.3
-  - bokeh=1.0.2
+  - babel=2.6.0
+  - backcall=0.1.0
+  - binutils_impl_linux-64=2.31.1
+  - binutils_linux-64=2.31.1
+  - blas=1.0=mkl
+  - bleach=3.0.2
+  - blosc=1.14.4
+  - bokeh=1.0.3
+  - bottleneck=1.2.1
   - bzip2=1.0.6
+  - ca-certificates=2018.03.07=0
+  - cairo=1.14.12
+  - certifi=2018.11.29
   - cffi=1.11.5
+  - chardet=3.0.4
   - click=7.0
   - cloudpickle=0.6.1
   - colorcet=1.0.0
-  - conda-build=3.17.6
+  - commonmark=0.8.1
+  - conda=4.5.12
+  - conda-env=2.6.0
   - coverage=4.5.2
+  - cryptography=2.4.2
+  - cycler=0.10.0
   - cython=0.29.2
+  - cytoolz=0.9.0.1
   - dask=1.0.0
-  - datashader=0.6.8
+  - dask-core=1.0.0
+  - datashape=0.5.4
+  - dbus=1.13.2
+  - decorator=4.3.0
+  - dill=0.2.8.2
   - distributed=1.25.1
+  - docutils=0.14
+  - entrypoints=0.2.3
   - expat=2.2.6
   - fastparquet=0.1.6
+  - ffmpeg=4.0
   - flake8=3.6.0
+  - fontconfig=2.13.0
+  - freeglut=3.0.0
+  - freetype=2.9.1
+  - fribidi=1.0.5
+  - future=0.17.1
+  - gcc_impl_linux-64=7.3.0
+  - gcc_linux-64=7.3.0
+  - gflags=2.2.2
+  - glib=2.56.2
+  - glog=0.3.5
+  - gmp=6.1.2
+  - graphite2=1.3.12
   - graphviz=2.40.1
+  - gst-plugins-base=1.14.0
+  - gstreamer=1.14.0
+  - gxx_impl_linux-64=7.3.0
+  - gxx_linux-64=7.3.0
   - h5py=2.8.0
+  - harfbuzz=1.8.8
   - hdf5=1.10.2
-  - holoviews=1.11
-  - hvplot=0.3.0a7
+  - heapdict=1.0.0
+  - icu=58.2
+  - idna=2.8
   - imageio=2.4.1
   - imagesize=1.1.0
-  - intake-parquet=0.2.1
-  - intake=0.3.0
+  - intel-openmp=2019.1=144
   - ipykernel=5.1.0
-  - ipympl=0.2.1
   - ipython=7.2.0
+  - ipython_genutils=0.2.0
   - ipywidgets=7.4.2
   - isort=4.3.4
+  - jasper=2.0.14
   - jedi=0.13.2
+  - jeepney=0.4
   - jinja2=2.10
+  - joblib=0.13.0
   - jpeg=9b
   - jsonschema=2.6.0
   - jupyter=1.0.0
+  - jupyter_client=5.2.4
+  - jupyter_console=6.0.0
+  - jupyter_core=4.4.0
+  - jupyterlab=0.35.3
+  - jupyterlab_server=0.2.0
+  - keyring=17.0.0
+  - keyrings.alt=3.1.1
+  - kiwisolver=1.0.1
+  - krb5=1.16.1
+  - lazy-object-proxy=1.3.1
+  - libboost=1.67.0
+  - libcurl=7.63.0
+  - libedit=3.1.20170329
+  - libevent=2.1.8
+  - libffi=3.2.1
+  - libgcc=7.2.0
+  - libgcc-ng=8.2.0
+  - libgfortran-ng=7.3.0
+  - libglu=9.0.0
+  - libgpuarray=0.7.6
+  - libopencv=3.4.2
+  - libopus=1.3
+  - libpng=1.6.35
+  - libpq=11.1
+  - libprotobuf=3.6.1
+  - libsodium=1.0.16
+  - libssh2=1.8.0
+  - libstdcxx-ng=8.2.0
+  - libtiff=4.0.9
+  - libuuid=1.0.3
+  - libvpx=1.7.0
+  - libxcb=1.13
+  - libxml2=2.9.8
   - line_profiler=2.1.2
+  - llvmlite=0.26.0
+  - locket=0.2.0
   - lz4=2.1.2
+  - lz4-c=1.8.1.2
+  - lzo=2.10
+  - mako=1.0.7
   - markdown=3.0.1
+  - markupsafe=1.1.0
   - matplotlib=3.0.2
+  - mccabe=0.6.1
   - memory_profiler=0.55.0
+  - mistune=0.8.4
+  - mkl=2019.1=144
+  - mkl-service=1.1.2
+  - mkl_fft=1.0.6
+  - mkl_random=1.0.2
+  - more-itertools=4.3.0
+  - msgpack-numpy=0.4.4.2
   - msgpack-python=0.5.6
+  - multidict=4.5.2
+  - multipledispatch=0.6.0
   - mypy=0.650
   - mypy_extensions=0.4.1
   - nbconvert=5.3.1
   - nbformat=4.4.0
-  - nbserverproxy=0.8.5
+  - nbserverproxy=0.8.8
+  - ncurses=6.1
   - networkx=2.2
   - nodejs=10.13.0
   - notebook=5.7.4
   - numba=0.41.0
+  - numexpr=2.6.8
   - numpy=1.15.4
+  - numpy-base=1.15.4
+  - olefile=0.46
+  - opencv=3.4.2
+  - openssl=1.1.1a
+  - orange3=3.17.0
+  - packaging=18.0
+  - pamela=0.3.0
   - pandas=0.23.4
-  - panel=0.3.1
+  - pandoc=2.2.3.2=0
+  - pandocfilters=1.4.2
   - pango=1.42.4
+  - parso=0.3.1
+  - partd=0.3.9
+  - patsy=0.5.1
+  - pcre=8.42
+  - pexpect=4.6.0
+  - pickleshare=0.7.5
   - pillow=5.3.0
   - pip=18.1
+  - pixman=0.34.0
+  - pluggy=0.8.0
+  - prometheus_client=0.5.0
+  - prompt_toolkit=2.0.7
+  - protobuf=3.6.1
   - psutil=5.4.8
   - psycopg2=2.7.6.1
+  - ptyprocess=0.6.0
   - py=1.7.0
+  - py-opencv=3.4.2
   - pyarrow=0.11.1
   - pycodestyle=2.4.0
+  - pycosat=0.6.3
+  - pycparser=2.19
+  - pycurl=7.43.0.2
   - pyflakes=2.0.0
+  - pygments=2.3.1
+  - pygpu=0.7.6
   - pylint=2.2.2
+  - pyopenssl=18.0.0
+  - pyparsing=2.3.0
   - pyqt=5.9.2
+  - pyqtgraph=0.10.0
+  - pysocks=1.6.8
   - pytables=3.4.4
-  - pytest=4.0.1
-  - pytest-arraydiff=0.2
-  - pytest-astropy=0.4.0
+  - pytest=4.0.2
+  - pytest-arraydiff=0.3
+  - pytest-astropy=0.5.0
   - pytest-cov=2.6.0
   - pytest-doctestplus=0.2.0
-  - pytest=4.0.1=py37_0
-  - python-dateutil=2.7.5
-  - python-graphviz=0.8.4
-  - python-snappy=0.5.3
+  - pytest-mock=1.10.0
+  - pytest-openfiles=0.3.1
+  - pytest-remotedata=0.3.1
   - python=3.7.1
+  - python-dateutil=2.7.5
+  - python-editor=1.0.3
+  - python-graphviz=0.8.4
+  - python-louvain=0.11
+  - python-oauth2=1.1.0
+  - python-snappy=0.5.3
   - pytz=2018.7
   - pywavelets=1.0.1
   - pyyaml=3.13
   - pyzmq=17.1.2
-  - qt=5.9.6
+  - qt=5.9.7
+  - qtconsole=4.4.3
   - readline=7.0
   - requests=2.21.0
+  - ruamel_yaml=0.15.46
   - scikit-image=0.14.1
-  - scikit-learn=0.20.1
+  - scikit-learn=0.20.2
   - scipy=1.1.0
-  - sep=1.0.3
+  - secretstorage=3.1.0
+  - send2trash=1.5.0
+  - serverfiles=0.3.0
   - setuptools=40.6.3
   - sip=4.19.8
   - six=1.12.0
   - snakeviz=1.0.0
   - snappy=1.1.7
+  - snowballstemmer=1.2.1
   - sortedcontainers=2.1.0
   - sphinx=1.8.2
   - sphinx_rtd_theme=0.4.2
+  - sphinxcontrib=1.0
+  - sphinxcontrib-websupport=1.1.0
   - sqlalchemy=1.2.15
   - sqlite=3.26.0
+  - statsmodels=0.9.0
+  - tblib=1.3.2
+  - termcolor=1.1.0
+  - terminado=0.8.1
+  - testpath=0.3.1
   - theano=1.0.3
+  - thrift=0.11.0
+  - thrift-cpp=0.11.0
+  - tk=8.6.8
+  - toolz=0.9.0
   - tornado=5.1.1
   - tqdm=4.28.1
+  - traitlets=4.3.2
   - transaction=2.4.0
-  - urllib3=1.23
+  - typed-ast=1.1.0
+  - urllib3=1.24.1
+  - wcwidth=0.1.7
+  - webencodings=0.5.1
+  - wheel=0.32.3
+  - widgetsnbextension=3.4.2
+  - wrapt=1.10.11
   - xarray=0.11.0
   - xlrd=1.2.0
-  - xorg-libxpm
-  - xorg-libxrender
-  - zope.interface=4.6.0
+  - xmltodict=0.11.0
+  - xz=5.2.4
+  - yaml=0.1.7
+  - yarl=1.3.0
+  - zeromq=4.2.5
+  - zict=0.1.3
+  - zlib=1.2.11
   - zope=1.0
-  - jupyterhub=0.9.4
-  - jupyterlab=0.35.4
-  - jupyterlab_server=0.2.0
+  - zope.interface=4.6.0
+  - zstd=1.3.3
+  - intake=0.3.0
+  - intake-astro=0.1.1
+  - intake-parquet=0.2.1
+  - intake-sql=0.2.0
+  - datashader=0.6.8
+  - holoviews=1.11.0
+  - hvplot=0.2.1
+  - panel=0.3.1
+  - param=1.8.1
+  - pyct=0.4.6
+  - pyct-core=0.4.6
+  - pyviz_comms=0.7.0
   - pip:
-    - async-generator==1.10
-    - babel==2.6.0
     - better-exceptions==0.2.1
     - bumpversion==0.5.3
     - dask-image==0.2.0
     - docker==3.6.0
     - docker-pycreds==0.4.0
-    - docutils==0.14
-    - ipython-sql==0.3.9     
+    - ipympl==0.2.1
+    - ipython-sql==0.3.9
+    - jupyterhub==0.9.4
+    - msgpack==0.5.6
     - photutils==0.6
     - pims==0.4.1
-    - python-editor==1.0.3
-    - python-oauth2==1.1.0
+    - prettytable==0.7.2
+    - sep==1.0.3
     - sidecar==0.2.0
     - slicerator==0.9.8
-    - statsmodels==0.9.0
-    - sphinx-autodoc-typehints==1.5.2
-    - sphinxcontrib-websupport==1.1.0
+    - sphinx-autodoc-typehints==1.6.0
+    - sqlparse==0.2.4
+    - tables==3.4.4
     - voluptuous==0.11.5
+    - websocket-client==0.54.0
 prefix: /opt/conda
 
