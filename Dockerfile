@@ -5,7 +5,7 @@ LABEL maintainer="Eduardo Gonzalez-Solares <eglez@ast.cam.ac.uk>"
 USER root
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends gcc libc6-dev procps libxrender1 && \
+    apt-get install -y --no-install-recommends gcc libc6-dev procps libxrender1 vim texlive-latex-base texlive-latex-extra dvipng && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_amd64
