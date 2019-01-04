@@ -25,15 +25,16 @@ RUN conda env update -n base -f /root/environment.yml && \
     rm -rf /root/.cache/yarn && \
     rm -rf /root/.node-gyp
 
-RUN mkdir -p /opt/conda/share/jupyter/lab/settings && echo '{ "hub_prefix": "/jupyter" }' > /opt/conda/share/jupyter/lab/settings/page_config.json
-
-COPY prepare.sh /usr/bin/prepare.sh
-RUN chmod +x /usr/bin/prepare.sh
+RUN mkdir -p /opt/conda/share/jupyter/lab/settings && \
+    echo '{ "hub_prefix": "/jupyter" }' > /opt/conda/share/jupyter/lab/settings/page_config.json
 
 RUN mkdir /opt/app
 ADD ipython /etc/ipython
 ADD jupyterlab_imaxt /opt/app/jupyterlab_imaxt
 RUN cd /opt/app/jupyterlab_imaxt && jupyter labextension install 
+
+COPY prepare.sh /usr/bin/prepare.sh
+RUN chmod +x /usr/bin/prepare.sh
 
 RUN groupadd -g 1110 jimaxt && \
     groupadd -g 1111 imaxt && \
@@ -50,4 +51,3 @@ RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot"
 WORKDIR /home/jimaxt
 
 ENTRYPOINT ["/usr/local/bin/dumb-init", "/usr/bin/prepare.sh"]
-
