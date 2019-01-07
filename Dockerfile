@@ -31,7 +31,7 @@ RUN mkdir -p /opt/conda/share/jupyter/lab/settings && \
 RUN mkdir /opt/app
 ADD ipython /etc/ipython
 ADD jupyterlab_imaxt /opt/app/jupyterlab_imaxt
-# RUN cd /opt/app/jupyterlab_imaxt && jupyter labextension install 
+RUN cd /opt/app/jupyterlab_imaxt && jupyter labextension install 
 
 COPY prepare.sh /usr/bin/prepare.sh
 RUN chmod +x /usr/bin/prepare.sh
