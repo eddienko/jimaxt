@@ -20,10 +20,22 @@ export default extension;
 
 export const BookMarks = [
     {
+        name: 'IMAXT Home Page',
+        url: 'http://imaxt.cruk.cam.ac.uk',
+        description: 'IMAXT Home Page',
+        target: '_blank'
+    },
+    {
         name: 'IMAXT Software Docs',
         url: 'https://imaxt.ast.cam.ac.uk/docs/',
-        description: 'Creating a simple JupyterLab plugin adding BookMark menu',
+        description: 'IMAXT software documentation',
         target: 'widget'
+    },
+    {
+        name: 'IMAXT GitHub',
+        url: 'https://github.com/IMAXT',
+        description: 'IMAXT GitHub repository',
+        target: '_blank'
     }
 ];
 
