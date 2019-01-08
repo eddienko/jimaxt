@@ -1,5 +1,6 @@
 import importlib
 import itertools
+import os
 import platform
 import subprocess
 
@@ -20,18 +21,20 @@ except:
 class CustomMagics(Magics):
 
     @magic_arguments()
-    @argument('-s', '--silent', action='store_true',
-              help='perform installation silently')
+    @argument('-v', '--verbose', action='store_true',
+              help='perform verbose installation')
     @argument('pkg', type=str, help='Package to install')
     @line_magic
     def install(self, line):
         """Install a package locally."""
         args = parse_argstring(self.install, line)
-        a = subprocess.run("pip install -qU --user {}".format(args.pkg),
+        opts = os.getenv("EXTRA_PIP_OPTS", "")
+        cmd = "pip install -U --user {} {}".format(args.pkg, opts)
+        a = subprocess.run(cmd,
                            shell=True, stdout=subprocess.PIPE,
                            stderr=subprocess.PIPE)
         if a.returncode == 0:
-            if not args.silent:
+            if args.verbose:
                 print(a.stdout.decode())
         else:
             print(a.stderr.decode())
