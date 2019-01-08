@@ -4,16 +4,15 @@ import os
 import platform
 import subprocess
 
-import pip
-from pip._internal.utils.misc import get_installed_distributions
 from IPython.core.magic import Magics, cell_magic, line_magic, magics_class
 from IPython.core.magic_arguments import (argument, magic_arguments,
                                           parse_argstring)
+from pip._internal.utils.misc import get_installed_distributions
 
 try:
     from isort import SortImports
     isort = True
-except:
+except:  # noqa: E722
     isort = False
 
 
@@ -42,7 +41,6 @@ class CustomMagics(Magics):
     @magic_arguments()
     @argument('-p', '--packages', nargs='+', type=str,
               help='List of packages')
-    @line_magic
     @line_magic
     def info_versions(self, line):
         def _pprint(key, val):
@@ -83,35 +81,7 @@ class CustomMagics(Magics):
         for r in res:
             print(''.join([*map(lambda x: f'{x:40s}', r)]))
 
-    @line_magic
-    def sci(self, line):
-        s = {}
-        s['numpy'] = ["import numpy as np"]
-        s['pandas'] = ["import pandas as pd"]
-        s['matplotlib'] = ["import matplotlib as mpl",
-                           "import seaborn as sns",
-                           "from matplotlib import pylab, mlab, pyplot",
-                           "from matplotlib import pyplot as plt"]
-        s['astropy'] = ["import astropy"]
-        s['scipy'] = ["import scipy"]
-        s['tensorflow'] = ["import tensorflow as tf"]
-        s['pyarrow'] = ["import pyarrow as pa", "import pyarrow.parquet as pq"]
-        s['dask'] = ['from dask import delayed',
-                     'import dask.array as da',
-                     'import dask.dataframe as dd']
-        if not line:
-            cmd = '\n'.join(itertools.chain(*s.values()))
-        else:
-            cmd = '\n'.join(itertools.chain(*[s[k] for k in line.split()]))
-        if isort:
-            cmd = SortImports(file_contents=cmd).output
-        if 'matplotlib' in line:
-            cmd = cmd + '\n%matplotlib inline'
-        self.shell.set_next_input('# %sci {}\n{}'.format(line, cmd), replace=True)
-
-
 
 if __name__ == '__main__':
     from IPython import get_ipython
     get_ipython().register_magics(CustomMagics)
-
