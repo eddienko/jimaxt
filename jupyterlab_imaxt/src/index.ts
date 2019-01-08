@@ -20,21 +20,27 @@ export default extension;
 
 export const BookMarks = [
     {
-        name: 'IMAXT Home Page',
+        name: 'Home Page',
         url: 'http://imaxt.cruk.cam.ac.uk',
         description: 'IMAXT Home Page',
         target: '_blank'
     },
     {
-        name: 'IMAXT Software Docs',
+        name: 'Software Docs',
         url: 'https://imaxt.ast.cam.ac.uk/docs/',
-        description: 'IMAXT software documentation',
+        description: 'IMAXT Software Documentation',
         target: 'widget'
     },
     {
-        name: 'IMAXT GitHub',
+        name: 'GitHub',
         url: 'https://github.com/IMAXT',
-        description: 'IMAXT GitHub repository',
+        description: 'IMAXT GitHub Repository',
+        target: '_blank'
+    },
+    {
+        name: 'Notebook Examples',
+        url: 'https://github.com/IMAXT/data-analysis-notebooks',
+        description: 'IMAXT Notebook Examples',
         target: '_blank'
     }
 ];
