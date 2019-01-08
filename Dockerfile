@@ -29,9 +29,10 @@ RUN mkdir -p /opt/conda/share/jupyter/lab/settings && \
     echo '{ "hub_prefix": "/jupyter" }' > /opt/conda/share/jupyter/lab/settings/page_config.json
 
 RUN mkdir /opt/app
-ADD ipython /etc/ipython
 ADD jupyterlab_imaxt /opt/app/jupyterlab_imaxt
 RUN cd /opt/app/jupyterlab_imaxt && jupyter labextension install 
+
+ADD ipython /etc/ipython
 
 COPY prepare.sh /usr/bin/prepare.sh
 RUN chmod +x /usr/bin/prepare.sh
