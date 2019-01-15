@@ -234,6 +234,7 @@ dependencies:
   - scikit-image=0.14.1
   - scikit-learn=0.20.2
   - scipy=1.1.0
+  - seaborn=0.9.0
   - secretstorage=3.1.0
   - send2trash=1.5.0
   - serverfiles=0.3.0
